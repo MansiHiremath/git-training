@@ -1,0 +1,117 @@
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git init
+Initialized empty Git repository in D:/Mansi/cherrypick/.git/
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ code a.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git commit -m "Add a file"
+[master (root-commit) e319445] Add a file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git checkout -b x
+Switched to a new branch 'x'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ code 1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git commit -m "Add one.txt"
+[x 91d96e9] Add one.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ code 2.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git commit -m "Add two.txt"
+[x 1be4565] Add two.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 2.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git checkout master
+Switched to branch 'master'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git checkout -b y
+Switched to a new branch 'y'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ code p.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ git commit -m "Add p.file"
+[y fa0f111] Add p.file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 p.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ code q.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ git commit -m "Add q.file"
+[y baecc66] Add q.file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 q.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ git log --oneline
+baecc66 (HEAD -> y) Add q.file
+fa0f111 Add p.file
+e319445 (master) Add a file
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (y)
+$ git checkout x
+Switched to branch 'x'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git log --oneline
+1be4565 (HEAD -> x) Add two.txt
+91d96e9 Add one.txt
+e319445 (master) Add a file
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (x)
+$ git checkout master
+Switched to branch 'master'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git cherry-pick 91d96e9
+[master df1f12d] Add one.txt
+ Date: Tue Mar 3 15:33:12 2020 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git cherry-pick baecc66
+[master b16a0d6] Add q.file
+ Date: Tue Mar 3 15:36:36 2020 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 q.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)
+$ git log --oneline
+b16a0d6 (HEAD -> master) Add q.file
+df1f12d Add one.txt
+e319445 Add a file
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/cherrypick (master)

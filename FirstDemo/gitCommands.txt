@@ -1,0 +1,27 @@
+$ git --version
+
+$ git config --global user.name "Mansi Hiremath"
+
+$ git config --edit --global			-wq to close the editor
+
+
+To make some other editor as default
+$ git config --global core.editor "notepad++" -multiInst -nosession
+
+git log
+git init  to make any folder as a repository
+
+git status
+
+code file1.txt
+code README.md
+
+
+git add *.txt
+git add .
+
+git commit -m "Message"
+
+git reset --soft HEAD^
+git reset --hard HEAD^
+

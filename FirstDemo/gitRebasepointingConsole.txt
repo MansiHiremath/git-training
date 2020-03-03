@@ -1,0 +1,115 @@
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git init
+Initialized empty Git repository in D:/Mansi/rebase_demo/.git/
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ code master1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ code master2.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git commit -m "Add two text files in master branch"
+[master (root-commit) 21bf3f2] Add two text files in master branch
+ 2 files changed, 2 insertions(+)
+ create mode 100644 master1.txt
+ create mode 100644 master2.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git log --oneline
+21bf3f2 (HEAD -> master) Add two text files in master branch
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git checkout -b ticket1
+Switched to a new branch 'ticket1'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ code a.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git commit -m "add a.file"
+[ticket1 8aaba92] add a.file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ code b.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git commit -m "add b.file"
+[ticket1 9fa9faa] add b.file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 b.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ code c.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git commit -m "add c.file"
+[ticket1 3a7e8a3] add c.file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 c.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git log --oneline
+3a7e8a3 (HEAD -> ticket1) add c.file
+9fa9faa add b.file
+8aaba92 add a.file
+21bf3f2 (master) Add two text files in master branch
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git checkout master
+Switched to branch 'master'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ code file.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git commit -m "add file.file"
+[master f8e0538] add file.file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (master)
+$ git checkout ticket1
+Switched to branch 'ticket1'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git log --oneline
+3a7e8a3 (HEAD -> ticket1) add c.file
+9fa9faa add b.file
+8aaba92 add a.file
+21bf3f2 Add two text files in master branch
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: add a.file
+Applying: add b.file
+Applying: add c.file
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$ git log --oneline --decorate --graph --all
+* 05e8a7b (HEAD -> ticket1) add c.file
+* 84db553 add b.file
+* 48f13f3 add a.file
+* f8e0538 (master) add file.file
+* 21bf3f2 Add two text files in master branch
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/rebase_demo (ticket1)
+$

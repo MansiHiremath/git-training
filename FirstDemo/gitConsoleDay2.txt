@@ -1,0 +1,191 @@
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (master)
+$ git init
+Initialized empty Git repository in D:/Mansi/SecondDay/.git/
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (master)
+$ code master1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (master)
+$ git add .
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (master)
+$ git commit -m "Initial commit in master"
+[master (root-commit) 9a246b7] Initial commit in master
+ 1 file changed, 2 insertions(+)
+ create mode 100644 master1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (master)
+$ git checkout -b branch1
+Switched to a new branch 'branch1'
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git status
+On branch branch1
+nothing to commit, working tree clean
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ ls
+master1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ code master1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ code file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git add file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git commit -m "first change in file1 txt"
+[branch1 e045fa1] first change in file1 txt
+ 1 file changed, 2 insertions(+)
+ create mode 100644 file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git status
+On branch branch1
+nothing to commit, working tree clean
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ code file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git add file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git commit -m "Second change in file1 txt"
+[branch1 c0797e4] Second change in file1 txt
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ code file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git add file1.txt
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git commit -m "Third change in file1 txt"
+[branch1 06983ba] Third change in file1 txt
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git log
+commit 06983babfb4360028d318929a5afe54922ab43f8 (HEAD -> branch1)
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:23:32 2020 +0530
+
+    Third change in file1 txt
+
+commit c0797e4ce4bbfcf7f65f7984b5c39588d53bcaf3
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:21:54 2020 +0530
+
+    Second change in file1 txt
+
+commit e045fa142d1ba3848947fa91a2d698a5b3756ffd
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:20:52 2020 +0530
+
+    first change in file1 txt
+
+commit 9a246b7676f217f1df92591e55a481974a123875 (master)
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:18:06 2020 +0530
+
+    Initial commit in master
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git log --oneline
+06983ba (HEAD -> branch1) Third change in file1 txt
+c0797e4 Second change in file1 txt
+e045fa1 first change in file1 txt
+9a246b7 (master) Initial commit in master
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git merge-base branch1 master
+9a246b7676f217f1df92591e55a481974a123875
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git rebase -i 9a246b7
+hint: Waiting for your editor to close the file...       1 [sig] bash 1501! sigpacket::process: Suppressing signal 18 to win32 process (pid 10448)
+Successfully rebased and updated refs/heads/branch1.
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git log
+commit 06983babfb4360028d318929a5afe54922ab43f8 (HEAD -> branch1)
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:23:32 2020 +0530
+
+    Third change in file1 txt
+
+commit c0797e4ce4bbfcf7f65f7984b5c39588d53bcaf3
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:21:54 2020 +0530
+
+    Second change in file1 txt
+
+commit e045fa142d1ba3848947fa91a2d698a5b3756ffd
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:20:52 2020 +0530
+
+    first change in file1 txt
+
+commit 9a246b7676f217f1df92591e55a481974a123875 (master)
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:18:06 2020 +0530
+
+    Initial commit in master
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git rebase -i 9a246b7
+error: cannot 'squash' without a previous commit
+You can fix this with 'git rebase --edit-todo' and then run 'git rebase --continue'.
+Or you can abort the rebase with 'git rebase --abort'.
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1|REBASE-i)
+$ git rebase -abort
+error: did you mean `--abort` (with two dashes ?)
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1|REBASE-i)
+$ git rebase --abort
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1)
+$ git rebase -i 9a246b7
+error: cannot 'squash' without a previous commit
+You can fix this with 'git rebase --edit-todo' and then run 'git rebase --continue'.
+Or you can abort the rebase with 'git rebase --abort'.
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1|REBASE-i)
+$ git log --oneline
+9a246b7 (HEAD, master) Initial commit in master
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1|REBASE-i)
+$ git log
+commit 9a246b7676f217f1df92591e55a481974a123875 (HEAD, master)
+Author: Mansi Hiremath <hiremathmansi1548@gmail.com>
+Date:   Tue Mar 3 14:18:06 2020 +0530
+
+    Initial commit in master
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1|REBASE-i)
+$ git merge-base branch1 master
+9a246b7676f217f1df92591e55a481974a123875
+
+TRG@ARISTW42S2083 MINGW64 /d/Mansi/SecondDay (branch1|REBASE-i)
+$ git rebase -i 9a246b7
+fatal: It seems that there is already a rebase-merge directory, and
+I wonder if you are in the middle of another rebase.  If that is the
+case, please try
+        git rebase (--continue | --abort | --skip)
+If that is not the case, please
+        rm -fr ".git/rebase-merge"
+and run me again.  I am stopping in case you still have something
+valuable there.
+
